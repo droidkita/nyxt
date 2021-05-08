@@ -599,5 +599,7 @@ Otherwise go forward to the only child."
     (alex:when-let ((scroll-position
                      (nyxt::scroll-position
                       (htree:data (htree:current (htree:owner history (id (buffer mode))))))))
-      (setf (nyxt:document-scroll-position (buffer mode)) scroll-position)))
+                   (setf (nyxt:document-scroll-position (buffer mode)) scroll-position)))
+  ;; Need to force document-model re-parsing.
+  (setf (document-model mode) nil)
   url)
